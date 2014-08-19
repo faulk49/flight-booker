@@ -1,0 +1,19 @@
+<h1>Booking</h1>
+
+<h2>Flight #<%= @flight.id %></h2>
+<h3>Date <%= @flight.formatted_date%></h3>
+<h3>Departing from <%= @flight.from_airport.code %></h3>
+
+
+  <%= form_for @booking do |f| %>
+    <%= f.hidden_field :flight_id %>
+    <h3>Passenger Information</h3>
+     <%= f.fields_for :passengers, class: 'form-horizontal' do |p| %>
+       <%= p.label :name %>
+       <%= p.text_field :name, class: 'form-control' %>
+       <%= p.label :email %>
+       <%= p.email_field :email, class: 'form-control' %>
+    <% end %>
+
+       <%= f.submit "Confirm", class: 'btn btn-lg btn-primary' %>
+ <% end %>

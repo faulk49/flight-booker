@@ -1,0 +1,35 @@
+<h1>Search Flights</h1>
+
+
+<%= form_tag '/flights', method: 'get', class: 'form-horizontal'  do |f| %>
+
+  <%= hidden_field_tag :search %>
+
+    <label>From:</label> <%= select_tag :from, options_for_select(@airport_options, params[:from] ), class: 'form-control'  %>
+
+    <label>To:</label> <%= select_tag :to, options_for_select(@airport_options, params[:to]), class: 'form-control' %>
+
+   <label>Date:</label> <%= select_tag :date, options_for_select(@date_options, params[:date]), class: 'form-control'  %>
+
+<label>Number of Passengers:</label> <%= select_tag :passengers, options_for_select(@num_pass, params[:passengers]), class: 'form-control'  %>
+
+
+  <%= submit_tag "Search", name: nil, class: 'btn btn-lg btn-primary'  %>
+<% end %>
+
+<div>
+  <h1>Available Flights</h1>
+</div>
+
+
+
+<% if params[:search] && !@flights.empty? %>
+  <%= form_tag new_booking_path, method: 'get', class: 'form-horizontal' do %>
+     <%= render @flights %>
+     <%= hidden_field_tag :passengers, params[:passengers] %>
+     <%= submit_tag "Book Flight", name: nil, class: 'btn btn-success' %>
+     <% end %>
+
+  <% else %>
+    <p> *NO FLIGHTS AVAILABLE </p>
+  <% end %>
