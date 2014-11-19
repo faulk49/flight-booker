@@ -15,3 +15,90 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+ html {
+    background: url('plane.jpg') fixed;
+
+    background-size: cover;
+
+    body {
+    background: transparent;
+    }
+    .container {
+
+    #searchTitle {
+    text-align: center;
+    }
+
+    label {
+    color: #152963;
+    -webkit-text-stroke: 1px gray;
+    -moz-text-stroke: 1px gray;
+    text-stroke: 1px gray;
+    font-weight: bold;
+    font-size: 18px;
+    }
+    #airports1, #airports2, #date, #numpass {
+    background: #0099FF;
+    color: #fff;
+
+    }
+    #search {
+    margin-top: 10px;
+    }
+
+    #avail {
+    text-align: center;
+    }
+    #book {
+    text-align: center;
+    }
+
+    h1 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: maroon;
+    font-weight: bolder;
+    font-size: 45px;
+    }
+    #flights {
+    display: inline-block;
+    color:#fff;
+    font-weight: bold;
+    margin-left: -30px;
+
+    }
+    .btn {
+    border: 1px solid black;
+    }
+
+    #passInfo {
+      text-align: center;
+      color: #152963;
+      opacity: .7;
+      font-size: 40px;
+      -webkit-text-stroke: 1px #fff;
+      -moz-text-stroke: 1px #fff;
+      text-stroke: 1px #fff;
+    }
+
+    #email {
+        margin-bottom: 10px;
+      }
+      .booking {
+      border: 1px solid #fff;
+      }
+
+      p {
+      font-size: 20px;
+      }
+      #info {
+        color: #5540C9;
+        font-weight: bold;
+        font-size: 30px;
+        -webkit-text-stroke: 1px gray;
+        -moz-text-stroke: 1px gray;
+        text-stroke: 1px gray;
+      }
+ }
+ }

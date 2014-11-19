@@ -1,35 +1,59 @@
-<h1>Search Flights</h1>
 
+<h1 id="searchTitle">Search Flights</h1>
 
-<%= form_tag '/flights', method: 'get', class: 'form-horizontal'  do |f| %>
+<%= form_tag '/flights', method: 'get', class: 'form' do |f| %>
 
   <%= hidden_field_tag :search %>
+  <div class="form-group">
+    <div class="col-md-offset-4 col-xs-4">
+    <label>From:</label> <%= select_tag :from, options_for_select(@airport_options, params[:from] ), class: 'form-control', id: 'airports1' %>
+      </div>
+    </div>
+    <!-- <div class="form-group"> -->
+      <div class="col-md-offset-4 col-xs-4">
+    <label>To:</label> <%= select_tag :to, options_for_select(@airport_options, params[:to]), class: 'form-control', id: 'airports2' %>
+      <!-- </div> -->
+    </div>
+    <!-- <div class="form-group"> -->
+      <div class="col-md-offset-4 col-xs-4">
+   <label>Date:</label> <%= select_tag :date, options_for_select(@date_options, params[:date]), class: 'form-control', id:'date'  %>
+    <!-- </div> -->
+   </div>
+   <!-- <div class="form-group"> -->
+   <div class="col-md-offset-4 col-xs-4">
+<label>Number of Passengers:</label> <%= select_tag :passengers, options_for_select(@num_pass, params[:passengers]), class: 'form-control', id: 'numpass'  %>
+      <div class="col-md-offset-3 col-xs-4">
+    <%= submit_tag "Search", name: nil, class: 'btn btn-lg btn-default', id: 'search'  %>
+    </div>
 
-    <label>From:</label> <%= select_tag :from, options_for_select(@airport_options, params[:from] ), class: 'form-control'  %>
+    </div>
 
-    <label>To:</label> <%= select_tag :to, options_for_select(@airport_options, params[:to]), class: 'form-control' %>
-
-   <label>Date:</label> <%= select_tag :date, options_for_select(@date_options, params[:date]), class: 'form-control'  %>
-
-<label>Number of Passengers:</label> <%= select_tag :passengers, options_for_select(@num_pass, params[:passengers]), class: 'form-control'  %>
-
-
-  <%= submit_tag "Search", name: nil, class: 'btn btn-lg btn-primary'  %>
 <% end %>
 
-<div>
-  <h1>Available Flights</h1>
-</div>
 
+
+
+
+  <!-- <div class="form"> -->
+    <div class="col-md-offset-4 col-xs-4">
+  <h1 id="avail">Available Flights</h1>
+  </div>
 
 
 <% if params[:search] && !@flights.empty? %>
-  <%= form_tag new_booking_path, method: 'get', class: 'form-horizontal' do %>
+  <%= form_tag new_booking_path, method: 'get', class: 'form' do %>
+    <div class="col-sm-10">
      <%= render @flights %>
      <%= hidden_field_tag :passengers, params[:passengers] %>
-     <%= submit_tag "Book Flight", name: nil, class: 'btn btn-success' %>
+     </div>
+     <div class="col-md-offset-5 col-xs-4">
+     <%= submit_tag "Book Flight", name: nil, class: 'btn btn-primary' %>
+     </div>
+
      <% end %>
 
   <% else %>
     <p> *NO FLIGHTS AVAILABLE </p>
+
+    </div>
   <% end %>

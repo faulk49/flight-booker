@@ -14,7 +14,7 @@
 <p>Passengers:</p>
 <ol>
 <% @booking.passengers.each do |passenger| %>
- <li> <%="#{passenger.name} <#{passenger.email}>" %></li>
+ <li id="info"> <%="#{passenger.name} <#{passenger.email}>" %></li>
 <% end %>
 </ol>
 
