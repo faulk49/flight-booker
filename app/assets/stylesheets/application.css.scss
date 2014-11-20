@@ -17,12 +17,29 @@
  @import "bootstrap";
 
 
- body {
-    background: asset_url('plane.jpg') fixed;
-
+ html,body {
+    background: asset_url('plane.jpg') no-repeat fixed;
     background-size: cover;
 
+
     .container {
+
+      padding: 15px;
+      max-width: 75%;
+
+
+      .form-group{
+      float: none;
+      margin: auto;
+
+      }
+
+      #search {
+      margin-top: 10px;
+      }
+
+
+
 
     #searchTitle {
     text-align: center;
@@ -41,13 +58,8 @@
     color: #fff;
 
     }
-    #search {
-    margin-top: 10px;
-    }
 
-    #avail {
-    text-align: center;
-    }
+
     #book {
     text-align: center;
     }
@@ -58,11 +70,11 @@
     font-weight: bolder;
     font-size: 45px;
     }
+
     #flights {
-    display: inline-block;
     color:#fff;
     font-weight: bold;
-    margin-left: -30px;
+
 
     }
     .btn {
